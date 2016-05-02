@@ -1,0 +1,65 @@
+[HOW TO ADD DRIVE TO PROJECT]
+(1)
+Go to:
+https://developers.google.com/mobile/add?platform=android&cntapi=signin&cntapp=Default%20Demo%20App&cntpkg=com.google.samples.quickstart.signin&cnturl=https:%2F%2Fdevelopers.google.com%2Fidentity%2Fsign-in%2Fandroid%2Fstart%3Fconfigured%3Dtrue&cntlbl=Continue%20with%20Try%20Sign-In
+
+(2)
+Replace "Default Demo App" with your project's developer-console name
+Replace "com.google.samples.quickstart.signin" with your project's package name
+Select your country and hit continue
+
+(3)
+Use the getDebugKey.SHA1 batch file to find your SHA key
+Enter it then hit Enable Google Sign in
+
+(4)
+Click generate configuration files
+Hit download google-services.json, make sure the downloaded file has the name google-services.json
+Add it to your project's app folder [...StudioProjects\YourProjectsName\app]
+Make sure it has been included in your git
+
+(5)
+Download the latest version of ZAPIWrapper from... [Asana]
+Copy the contents of the folder (not the folder itself) and paste them into your project
+
+(6)
+Open each of the java files added to your project and change the package names to your package names
+
+(7)
+Copy the following dependencies and add them to your module level gradle file:
+
+compile 'com.google.android.gms:play-services:8.4.0'
+apply plugin: 'com.google.gms.google-services'
+
+Copy the following dependency and add it to your project level gradle file:
+
+classpath 'com.google.gms:google-services:2.0.0-alpha6'
+
+[HOW TO ADD PLACES TO PROJECT]
+(1)
+Enable places in your apps developer console project and generate an api key
+
+(2)
+Add the api key to your project by adding the following code within your AndroidManifest.xml file's application tags
+
+<application>
+  ...
+<meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="YOUR_API_KEY"/>
+</application>
+
+(3)
+Copy the following dependencies and add them to your module level gradle file:
+
+compile 'com.google.android.gms:play-services:8.4.0'
+apply plugin: 'com.google.gms.google-services'
+
+Copy the following dependency and add it to your project level gradle file:
+
+classpath 'com.google.gms:google-services:2.0.0-alpha6'
+
+(4)
+Add this permission within AndroidManifest.xml file's manifest tags
+
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
